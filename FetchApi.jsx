@@ -40,6 +40,17 @@ const FetchApi = () => {
   let changePage = ({ selected }) => {
     setPageNumber(selected);
   };
+let initialPage = ({ selected }) => {
+    if ((selected = 0.01)) {
+      return setPageNumber(selected);
+    }
+  };
+
+  let finalPage = ({ selected }) => {
+    if ((selected = 19)) {
+      return setPageNumber(selected);
+    }
+  };
 
   return (
     <Fragment>
@@ -59,6 +70,20 @@ const FetchApi = () => {
           onPageChange={changePage}
           className="flex ml-[600px] bg-slate-300 w-[260px] mt-7 rounded"
         />
+      </div>
+ <div className="absolute ml-[700px]">
+        <button
+          className="relative bg-slate-500 rounded w-[60px]"
+          onClick={initialPage}
+        >
+          First
+        </button>
+        <button
+          className="relative ml-4 bg-slate-500 rounded w-[60px]"
+          onClick={finalPage}
+        >
+          Last
+        </button>
       </div>
     </Fragment>
   );
